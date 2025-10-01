@@ -25706,7 +25706,7 @@ class Engine {
 ##### 3 Aralık 2024
 ##### Inheritance İlişkisi
 
->Bu ilişkiye NYPT'de `is a` ilişkisi de denilmektedir. Bu ilişki ile varolan bir sınıfın kodlarına dokunmadan (kodları elimizde olabilir ya da olmayabilir) **genişletme (extension)** yapılabilir. Bu ilişkiye aynı zamanda **generalization** da denilmektedir. Bu ilişkiye Türkçe olarak **türetme/kalıtım** ilişkisi diyeceğiz. Örneğin `analitik düzlemde` bir çemberi temsil eden (yarıçap, alan, çevre, merkez koordinatları vb bilgilerle) bir sınıf yazacak olalım. Anımsanacağı gibi daha önce yazdığımız Circle sınıfı `sentetik geometride` bir çemberi (dolayısıyla daireyi) temsil etmektedir. Yani, elimizde daha önceden yazılmış ve test edilmiş bir sınıf bulunmaktadır. Analitik düzlemde bir çemberde analitik özellikleri dışından bir çember olduğundan `(Analytical circle is a circle)`, `AnalyticalCircle` isimli bir sınıf `Circle` sınıfından türetilebilir. Bu anlamda bu ilişki `SOLID` ilkelerinden `Open Closed Principle`'ın mottosu olan **open for extension closed for modification** cümlesi de karşılamaktadır.
+>Bu ilişkiye NYPT'de `is a` ilişkisi de denilmektedir. Bu ilişki ile varolan bir sınıfın kodlarına dokunmadan (kodları elimizde olabilir ya da olmayabilir) **genişletme (extension)** yapılabilir. Bu ilişkiye aynı zamanda **generalization** da denilmektedir. Bu ilişkiye Türkçe olarak **türetme/kalıtım** ilişkisi diyeceğiz. Örneğin `analitik düzlemde` bir çemberi temsil eden (yarıçap, alan, çevre, merkez koordinatları vb bilgilerle) bir sınıf yazacak olalım. Anımsanacağı gibi daha önce yazdığımız Circle sınıfı `sentetik geometride` bir çemberi (dolayısıyla daireyi) temsil etmektedir. Yani, elimizde daha önceden yazılmış ve test edilmiş bir sınıf bulunmaktadır. Analitik düzlemde bir çember de analitik özellikleri dışında bir çember olduğundan `(Analytical circle is a circle)`, `AnalyticalCircle` isimli bir sınıf `Circle` sınıfından türetilebilir. Bu anlamda bu ilişki `SOLID` ilkelerinden `Open Closed Principle`'ın mottosu olan **open for extension closed for modification** cümlesini de karşılamaktadır.
 >
 >A sınıfından B sınıfı türetilmiş olsun (B is a A). Bu durumda A sınıfına B sınıfının **taban sınıfı (bas class)**, B'ye ise A nın bir **türemiş sınıfı (derived class)** denir. Java'da `base class` yerine daha çok **super class**, `derived class` yerine ise daha çok **sub class** terimleri kullanılır. Bu terimlerle birlikte NYPT'de `base class` yerine **parent class**, `derived class` yerine **child class** terİmleri de kullanılabilmektedir. `B is a A` ilişkisinin sınıf şeması şu şekildedir:
 
@@ -25795,7 +25795,7 @@ class A {
 
 ##### 5 Aralık 2024
 
->Anımsanacağı gibi bir nesnenin yaratılmasının tamamlanması için en son aşamada ilgili ctor'unda çağrılmış olması gerekir. Bu durumda türemiş sınıf nesnesi yaratıldığında içerisinde taban sınıf nesnesi için de ctor'un çağrılması gerekir. **Türemiş sınıf ctor'undan önce, türemiş sınıf ctor'unda her hangi bir belirtme yapılmamışsa, taban sınıfının default ctor'u çağrılır.**  Yani aslında derleyici türemiş sınıf ctor'unun başında taban sınıf ctor çağrısı kodunu gizlice yerleştirir. Türemiş sınıf ctor'unda taban sınıf ctor'unun çağrısına ilişkin belirtme `super ctor sentaksı (**super ctor syntax)` kullanılarak yapılır. İleride ele alınacaktır.
+>Anımsanacağı gibi bir nesnenin yaratılmasının tamamlanması için en son aşamada ilgili ctor'unda çağrılmış olması gerekir. Bu durumda türemiş sınıf nesnesi yaratıldığında içerisinde taban sınıf nesnesi için de ctor'un çağrılması gerekir. **Türemiş sınıf ctor'undan önce, türemiş sınıf ctor'unda her hangi bir belirtme yapılmamışsa, taban sınıfının default ctor'u çağrılır.**  Yani aslında derleyici türemiş sınıf ctor'unun başında taban sınıf ctor çağrısı kodunu gizlice yerleştirir. Türemiş sınıf ctor'unda taban sınıf ctor'unun çağrısına ilişkin belirtme `super ctor sentaksı (super ctor syntax)` kullanılarak yapılır. İleride ele alınacaktır.
 
 >Aşağıdaki demo örneği çalıştırıp çağrıları gözlemleyiniz
 
@@ -26057,14 +26057,14 @@ class A {
 
 ###### this Constructor Syntax
 
->Bir sınıfın bir ctor'undan önce, aynı sınıfın başka bir ctor'un çağrılabilmesi mümkündür ve bu **this ctor sentaksı (this ctor syntax)** kullanılarak yapılabilir. this ctor sentaksı **this** anahtar sözcüğü ile yapılır. thşs ctor sentaksının genel biçimi şu şekildedir:,
+>Bir sınıfın bir ctor'undan önce, aynı sınıfın başka bir ctor'un çağrılabilmesi mümkündür ve bu **this ctor sentaksı (this ctor syntax)** kullanılarak yapılabilir. this ctor sentaksı **this** anahtar sözcüğü ile yapılır. this ctor sentaksının genel biçimi şu şekildedir:,
 
 
 ```java
 this([argumanlar]);
 ```
 
-this ctor sentaksı türemiş sınıf ctor'nun başına programcı tarafından yerleştirilir. this ctor sentaksında hangi ctor'un çağrılacağı `method overload resolution` kurallarına göre belirlenir. Bir ctor'un başında `this()` sentaksının yazılması ile yazılmaması aynı anlamda değildir. Yazılırsa, yazılan ctor'dan önce default ctor çağrılsın anlamında, yazılmasa, yazılmayan ctor'dan önce herhangi bir ctor çağrılmasın anlamındadır. this ctor sentaksından önce başka bir deyim yazılması error oluşuturur. Ayrıca adından da anlaşıldığı gibi this ctor sentaksı yalnızca ctor içerisinde yazılabilir. Bir metot içerisinde yazılması error oluşturur. this ctor sentaksında döngüsel durum error oluşturur
+this ctor sentaksı sınıf ctor'nun başına programcı tarafından yerleştirilir. this ctor sentaksında hangi ctor'un çağrılacağı `method overload resolution` kurallarına göre belirlenir. Bir ctor'un başında `this()` sentaksının yazılması ile yazılmaması aynı anlamda değildir. Yazılırsa, yazılan ctor'dan önce default ctor çağrılsın anlamında, yazılmasa, yazılmayan ctor'dan önce herhangi bir ctor çağrılmasın anlamındadır. this ctor sentaksından önce başka bir deyim yazılması error oluşuturur. Ayrıca adından da anlaşıldığı gibi this ctor sentaksı yalnızca ctor içerisinde yazılabilir. Bir metot içerisinde yazılması error oluşturur. this ctor sentaksında döngüsel durum error oluşturur
 
 >Aşağıdaki demo örneği inceleyiniz
 
@@ -26219,7 +26219,7 @@ class A {
 }
 ```
 
->super ctor sentaksı ve this ctor sentaksı aynı ctor'da kullanılamaz. Çünkü her ikisinin de ctor'un ilk deyimi olması zorunludur. Aslında programcının böylesi bir durumla hiç karşılaşmaması gerekir. İyi bir tasarım ve dolayısıyla implementasyon programcı hiç bir zaman bunu kullanmak zorunda bırakmaz. Bir programcı böylesi bir durumla karşılaşırsa tasarımına bakmaıdır. 
+>super ctor sentaksı ve this ctor sentaksı aynı ctor'da kullanılamaz. Çünkü her ikisinin de ctor'un ilk deyimi olması zorunludur. Aslında programcının böylesi bir durumla hiç karşılaşmaması gerekir. İyi bir tasarım ve dolayısıyla implementasyon programcı hiç bir zaman bunu kullanmak zorunda bırakmaz. Bir programcı böylesi bir durumla karşılaşırsa tasarımına bakmalıdır. 
 
 >Aşağıdaki demo örnekte this ctor ve super sentaksları aynı ctor'da bir arada kullanıldıklarından error oluşur
 
@@ -26291,7 +26291,7 @@ class A {
 
 ###### Object Sınıfı
 
->Bir sınıf extends anahtar sözcüğü ile hiç bir sınıftab türetilmese de **java.lang.Object** isimli bir sınıftan türetilmiş olur. Bu durumda Object sınıfı her sınıfın doğrudan ya da dolaylı olarak taban sınıfıdır. Böyle bir tasarımın yani Object sınıfın varlığı ve anlamı ileride ele alınacaktır. İstenirse Object sınıfı bir sınıfta extends anahtar sözcüğü ile de yazılabilir, yazılmasa da aynı anlamda olduğundan yazmamayı tercih edeceğiz. Bu durumda taban sınıf olmayan tek sınıf Object'dir. 
+>Bir sınıf extends anahtar sözcüğü ile hiç bir sınıftan türetilmese de **java.lang.Object** isimli bir sınıftan türetilmiş olur. Bu durumda Object sınıfı her sınıfın doğrudan ya da dolaylı olarak taban sınıfıdır. Böyle bir tasarımın yani Object sınıfın varlığı ve anlamı ileride ele alınacaktır. İstenirse Object sınıfı bir sınıfta extends anahtar sözcüğü ile de yazılabilir, yazılmasa da aynı anlamda olduğundan yazmamayı tercih edeceğiz. Bu durumda taban sınıf olmayan tek sınıf Object'dir. 
 
 >Aşağıdaki demo sınıfın taban sınıfı olarak Object yazılmasına gerek yoktur
 
@@ -26733,7 +26733,7 @@ final class A {
     //...  
 }
 ```
->Bir sınıfın türetmeye kapatılması şüphesiz sınıfın domain'ine bağlıdır. Ancak bazı durumlarda gerekmese de sınıf final yapılır. Örneğin utility sınıflar zaten nesne özelliği göstermedikleri için bir convention olarak final yapılabilir. Ancak Jaba'da bu convention'a bazı sınıflarda uyulmamıştır. Örneğin Math sınıfı final'dır ancak Array sınıfı final olarak bildirilmemiştir. 
+>Bir sınıfın türetmeye kapatılması şüphesiz sınıfın domain'ine bağlıdır. Ancak bazı durumlarda gerekmese de sınıf final yapılır. Örneğin utility sınıflar zaten nesne özelliği göstermedikleri için bir convention olarak final yapılabilir. Ancak Java'da bu convention'a bazı sınıflarda uyulmamıştır. Örneğin Math sınıfı final'dır ancak Array sınıfı final olarak bildirilmemiştir. 
 
 >Aşağıda final olarak bildirilmiş utility sınıfları inceleyiniz
 
@@ -27859,7 +27859,7 @@ class A {
 
 >Upcasting argümandan parametreye aktarım ve metodun geri dönüş değerinde geçici değişkene atama durumlarında da geçerlidir. 
 
->Upcasting ile özellikle türden bağımsız (type independent) kodlar yazılabilmektedir. Aşağıdaki demo örnekte A hiyararşisine yeni bir sınıf eklendiğinde yani A dan doğrudan ya da dolaylı olarak yeni bir sınıf türetildiğinde Sample sınıfına ve DemoApp sınıfının kodlarının değia da kodlarına eklenti yapılması gerekmez. İşte bu demo örnekte Sample sınıfı ve DemoApp sınıfı A'dan türeyenlerden bağımsız yazılmıştır. Başka bir deyişle Sampe ve DemoApp sınıfı A hiyerarşisinde yalnızca A sınıfına bağlıdır (dependency) 
+>Upcasting ile özellikle türden bağımsız (type independent) kodlar yazılabilmektedir. Aşağıdaki demo örnekte A hiyararşisine yeni bir sınıf eklendiğinde yani A dan doğrudan ya da dolaylı olarak yeni bir sınıf türetildiğinde Sample sınıfına ve DemoApp sınıfının kodlarına da kodlarına eklenti yapılması gerekmez. İşte bu demo örnekte Sample sınıfı ve DemoApp sınıfı A'dan türeyenlerden bağımsız yazılmıştır. Başka bir deyişle Sampe ve DemoApp sınıfı A hiyerarşisinde yalnızca A sınıfına bağlıdır (dependency) 
 
 ```java
 package org.csystem.app;  
@@ -28081,7 +28081,7 @@ class A {
 
 >Bu dönüşüm doğrudan yapılamaz, tür dönüştürme operatörü ile (explicit conversion/casting) yapılabilir. Aslında tür dönüştürme operatörü derlemeden geçmek içindir. Çalışma zamanında kaynak referansın (yani türemiş sınıf türünden referansın) dinamik türüne bakılır, dinamik tür hedef referansa ilişkin türü kapsıyorsa yani aralarından doğrudan ya da dolaylı olarak bir türetme ilişkisi varsa (nesnesel kapsama) **haklı dönüşüm (valid casting)**  olarak ele alınır ve akış devam eder. Kapsamıyorsa **haksız dönüşüm (invalid casting)** olarak ele alınır ve exception oluşur. 
 
->Aşağıdaki demo örneği inceleyiniz. Dinamil türlere göre akışı gözlemleyiniz
+>Aşağıdaki demo örneği inceleyiniz. Dinamik türlere göre akışı gözlemleyiniz
 
 ```java
 package org.csystem.app;  
@@ -28438,7 +28438,7 @@ public class DemoObjectArrayGeneratorApp {
 ##### 26 Aralık 2024
 ##### Sarmalayan Sınıflar (Wrapper Classes)
 
->JavaSE'de her temel türe karşılık gelen bir sınıf bulundurulmuştur. Bu sınıflara **sarmalayan sınıflar (wrapper classes)** denir. Bu sınıfların sarmalama dışında ilgili temel türe ilişkin pek çok yararlı elemanı bulunur. Anımsanacağı gibi Character dışında kalan sınıfların parseXXX metotları aldıkları yazıyı ilgili temel türe çevirmek için kullanılırlar. Sarmalayan sınıflar ve ilişkin oldukları temel türle şu şekildedir:
+>JavaSE'de her temel türe karşılık gelen bir sınıf bulundurulmuştur. Bu sınıflara **sarmalayan sınıflar (wrapper classes)** denir. Bu sınıfların sarmalama dışında ilgili temel türe ilişkin pek çok yararlı elemanı bulunur. Anımsanacağı gibi Character dışında kalan sınıfların parseXXX metotları aldıkları yazıyı ilgili temel türe çevirmek için kullanılırlar. Sarmalayan sınıflar ve ilişkin oldukları temel türler şu şekildedir:
 
 
 | Temel Tür | Sarmalayan Sınıf |
@@ -28457,7 +28457,7 @@ public class DemoObjectArrayGeneratorApp {
 >- Tamsayı ve gerçek sayı türlerine ilişkin sınıflar (Short, Integer, Long, Byte, Float, Double) `java.lang` paketi içerisindeki `Number` isimli sınıftan türetilmişlerdir. Bu sınıflara **numeric classes** da denilmektedir
 >- `Character` ve `Boolean` sınıfları Object sınıfından türetilmişlerdir. 
 >- Sarmalayan sınıfların ctor'ları `Java 9` ile birlikte `deprecated` olmuştur ve aynı zamanda ileleyen sürümlerde silineceği belirtilmiştir. Zaten ileride göreceğimiz nedenlerden dolayı `Java 5`'den itibaren bu sınıfların ctor'ları ile nesne yaratılması önerilmemektedir. Dolayısıyla `Java 5`'den itibaren programcılar tarafında da kullanılmamaktadır.
->- Sarmalayan sınıflar temel türden bir değerin heap'de tutulması için kullanılırlar. Anımsanacağı gibi temel türden bir değerin heap'de tutulmasına **kutulama (boxing)**, heap'de tutulan temel türden bir değerin elde edilmesine ise **kutu açma (unboxing)** denilmektedir. 
+>- Sarmalayan sınıflar temel türden bir değerin heap'de tutulması için kullanılırlar. Anımsanacağı gibi temel türden bir >değerin heap'de tutulmasına **kutulama (boxing)**, heap'de tutulan temel türden bir değerin elde edilmesine ise **kutu açma (unboxing)** denilmektedir. 
 >- Bu sınıflar `immutable`'dır. Yani kutuladıkları değer değiştirilemez.
 >- Bu sınıflar kutuladıkları değerlere ilişkin **ön bellek (cache)** kullanarak zaman ve bellek maliyetini minimize ederler.
 >- Sarmalayan sınıflara **platform classes** da denilmektedir.
@@ -28528,7 +28528,7 @@ class App {
 
 >Boolean sınıfına `Java 4` ile, diğer sarmalayan sınıflara `Java 5` ile birlikte ilgili temel türden parametreli **valueOf** factory metotları eklenmiştir (boxing). **valueOf** metotları bir ön bellek kullanırlar. Tamsayı türlerine ilişkin sarmalayan sınıfların valueOf metotları `[-128, 127]` aralığındaki değerler için bir ön bellek tutar. Bu aralıktaki bir değer için ilgili nesne değer ilk kez sarmalandığında yaratılır, diğer sarmalamalarda aynı nesnenin referansına geri dönülür. Bu sınırlar dışında kalan değerler için ön bellek tutulup tutulmayacağı derleyici yazanlar bırakılmıştır (implementation defined). Character sınıfının `valueOf` metodu `['\u0000', '\u007F']` aralığındakİ değerleri için bir ön bellek tutar.  Bu sınırlar dışında kalan değerler için ön bellek tutulup tutulmayacağı derleyici yazanlar bırakılmıştır . Gerçek sayı türlerine ilişkin sarmalayan sınıfların (Float, Double) valueOf metotları tutuluş formatına uygun olarak bir ön bellek tutarlar. Bu sınıfların ön bellek kullanmasındaki temel amaç **to yield significantly better space and time performance** içindir.
 
-**Anahtar Notlar:** Daha önce yazmış olduğumuz `IntValue` sınıfını inceleyiniz
+**Anahtar Notlar:** Daha önce yazmış olduğumuz `IntValue` sınıfını inceleyiniz.
 
 >Aşağıdaki demo örneği inceleyiniz. 
 >**Not:** Örnekte static kod analizi araçları tarafından verilen uyarıları şimdilik dikkate almayınız
@@ -29077,7 +29077,7 @@ class Sample {
 
 ##### 16 Ocak 2024
 
->Aşağıdaki demo örnekte nesney gösteren referans null yapılmasına karşın nesne eligible duruma gelmemiştir. Çünkü nesneyi gösteren bir referans daha bulunmaktadır
+>Aşağıdaki demo örnekte nesneyi gösteren referans null yapılmasına karşın nesne eligible duruma gelmemiştir. Çünkü nesneyi gösteren bir referans daha bulunmaktadır
 
 ```java
 package org.csystem.app;  
@@ -29210,7 +29210,7 @@ class DemoApp {
 ```
 
 
->Yukarıdaki durumlar dışında da kullanımlar söz konusu olabilir. Yukarıdaki kullanımlar daha geneldir.
+>Yukarıdaki durumlar dışında da kullanımlar söz konusu olabilir. Yukarıdaki kullanımlar çok karşımıza çıkar.
 
 #### this Referansı
 
@@ -29346,7 +29346,7 @@ class Sample {
 }
 ```
 
-**Anahtar Notlar:** Java'ya örnek aldığı dillerden aktarılan ancak pratikte kullanılmayan bir sentaks vardır. Buna göre non-static metot istenirse birinci parametresi ilgili UDT türünden ve ismi this olan bir referans olarak da bildirilebilir. Bu referansın olması ile olmaması arasında bir fark yoktur. Pratikte kullanılmaz.
+**Anahtar Notlar:** Java'ya örnek aldığı bazı dillerden aktarılan ancak pratikte kullanılmayan bir sentaks vardır. Buna göre non-static metot istenirse birinci parametresi ilgili UDT türünden ve ismi this olan bir referans olarak da bildirilebilir. Bu referansın olması ile olmaması arasında bir fark yoktur. Pratikte kullanılmaz.
 
 >Aşağıdaki demo örnekte bulunan setX ve getX metotlarının `Sample this`parametrelerinin yazılması ile yazılmaması arasında fark yoktur. Pratikte yazmayacağız
 
@@ -39469,9 +39469,7 @@ public final class StringUtil {
     - Metotların karmaşıklıklarının `ArrayList<E>` ile aynı olması gerekir.  
     - Metotlarda fırlatılacak exception'lar yine `ArrayList<E>` ile aynı olacaktır.  
     - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz.
->
->`CSDArrayList<E>` sınıfının iskeleti
-
+    - `CSDArrayList<E>` sınıfının iskeleti şu şekildedir:
 ```java
 package org.csystem.collection;  
   
@@ -39543,6 +39541,156 @@ public class CSDArrayList<E> {
     }  
 }
 ```
+
+
+**Anahtar Notlar:** Anımsanacağı gibi bir nesneyi gösteren en az bir tane referans kaldığında nesne eligible duruma geçemez. Bu durumda GC devreye girdiğinde nesneyi çöp olarak kabul etmez. Bazı durumlarda programcı nesneyi referanstan kopartmayı gözden kaçırırsa bu durumda nesne hiç bir zaman eligible duruma gelemez. ArrayList sınıfının clear metodunda  ve remove metodunda böylesi bir durum oluşmaması için referanslar null'a çekilmiştir.
+
+**Çözüm:**
+
+```java
+package org.csystem.collection;  
+  
+import java.util.Arrays;  
+  
+public class CSDArrayList<E> {  
+    private static final int DEFAULT_CAPACITY = 10;  
+    private E [] m_elements;  
+    private int m_index;  
+  
+    private void throwIllegalArgumentException(String message)  
+    {  
+        throw new IllegalArgumentException(message);  
+    }  
+  
+    private void throwIndexOutOfBoundsException(String message)  
+    {  
+        throw new IndexOutOfBoundsException(message);  
+    }  
+  
+    private void checkCapacity(int capacity)  
+    {  
+        if (capacity < 0)  
+            throwIllegalArgumentException(String.format("Capacity must be non-negative:%d", capacity));  
+    }  
+  
+    private void checkIndex(int index)  
+    {  
+        if (index < 0 || index >= m_index)  
+            throwIndexOutOfBoundsException(String.format("Index out of bounds:%d", index));  
+    }  
+  
+    private void changeCapacity(int capacity)  
+    {  
+        m_elements = Arrays.copyOf(m_elements, capacity);  
+    }  
+  
+    private void increaseCapacityIfNecessary()  
+    {  
+        if (m_elements.length == m_index)  
+            changeCapacity(m_elements.length == 0 ? 1 : m_elements.length * 2);  
+    }  
+  
+    public CSDArrayList()  
+    {  
+        m_elements = (E[])new Object[DEFAULT_CAPACITY];  
+    }  
+  
+    public CSDArrayList(int initialCapacity)  
+    {  
+        checkCapacity(initialCapacity);  
+        m_elements = (E[])new Object[initialCapacity];  
+    }  
+  
+    public boolean add(E element)  
+    {  
+        increaseCapacityIfNecessary();  
+        m_elements[m_index++] = element;  
+  
+        return true;  
+    }  
+  
+    public void add(int index, E element)  
+    {  
+        increaseCapacityIfNecessary();  
+  
+        for (int i = m_index++; i > index; --i)  
+            m_elements[i] = m_elements[i - 1];  
+  
+        m_elements[index] = element;  
+    }  
+  
+    public int capacity()  
+    {  
+        return m_elements.length;  
+    }  
+  
+    public void clear()  
+    {  
+        for (int i = 0; i < m_index; ++i)  
+            m_elements[i] = null;  
+  
+        m_index = 0;  
+    }  
+  
+    public void ensureCapacity(int minCapacity)  
+    {  
+        if (minCapacity > m_elements.length)  
+            changeCapacity(Math.max(minCapacity, m_elements.length * 2));  
+    }  
+  
+    public E get(int index)  
+    {  
+        checkIndex(index);  
+  
+        return m_elements[index];  
+    }  
+  
+    public E remove(int index)  
+    {  
+        checkIndex(index);  
+        E oldElement = m_elements[index];  
+  
+        for (int i = index; i < m_index - 1; ++i)  
+            m_elements[i] = m_elements[i + 1];  
+  
+        m_elements[--m_index] = null;  
+  
+        return oldElement;  
+    }  
+  
+    public E set(int index, E element)  
+    {  
+        checkIndex(index);  
+        E oldElement = m_elements[index];  
+  
+        m_elements[index] = element;  
+  
+        return oldElement;  
+    }  
+  
+    public int size()  
+    {  
+        return m_index;  
+    }  
+  
+    public void trimToSize()  
+    {  
+        if (m_elements.length != m_index)  
+            changeCapacity(m_index);  
+    }  
+  
+    public String toString()  
+    {  
+        StringBuilder sb = new StringBuilder("[");  
+  
+        for (int i = 0; i < m_index; ++i)  
+            sb.append(m_elements[i]).append(", ");  
+  
+        return (m_index != 0 ? sb.substring(0, sb.length() - 2) : sb.toString()) + "]";  
+    }  
+}
+```
+
 
 
 
