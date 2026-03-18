@@ -21792,13 +21792,13 @@ NYPT ilerledikçe bazı programcılar bir takım problemlere genel çözümler �
 
 #### Singleton Tasarım Kalıbı
 
-Singleton GoF'un nesne yaratan (creational) kalıplarından biridir. Problemin tanımı şu şekilde verilebilir: *Öyle bir sınıf olsun ki o sınıf türünden program boyunca yalnızca bir tane nesne yaratılabilsin ve istenildiği zaman o nesne referansı elde edilebilsin.* 
+Singleton GoF'un nesne yaratan (creational) kalıplarından biridir. Problemin tanımı şu şekilde verilebilir: *Öyle bir sınıf olsun ki o sınıf türünden program boyunca yalnızca bir tane nesne yaratılabilsin ve istenildiği zaman o nesne referansı elde edilebilsin.*
 
-**Anahtar Notlar:** Singleton kalıbının birçok implementasyonu söz konusudur. Zaman içerisinde bunlar ele alınacaktır.
+**Not:** Singleton kalıbının birçok implementasyonu söz konusudur. Bunlar konular ilerledikçe ele alınacaktır.
 
-**Anahtar Notlar:** Burada Singleton kalıbının hangi durumlarda kullanılacağı ele alınmayacaktır. Yalnızca probleme ve çözümüne odaklanınız.
+**Not:** Burada Singleton kalıbının hangi durumlarda kullanılacağı ele alınmayacaktır. Şu anda yalnızca probleme ve çözümüne odaklanınız.
 
-> Singleton kalıbının bir implementasyonu. Dikkat edilirse bu implementasyonda ilgili nesne ilk getInstance çağrısında yaratılmaktadır. Bu durumda getInstance çağrılmadığı sürece nesne yaratılmamaktadır. Bu sebeple buna **lazy implementation** da denilmektedir.
+> Singleton kalıbının bir implementasyonu. Dikkat edilirse bu implementasyonda ilgili nesne ilk `getInstance()` çağrısında yaratılmaktadır. Bu durumda `getInstance()` çağrılmadığı sürece nesne yaratılmamaktadır. Bu sebeple buna *lazy implementation* da denilmektedir.
 
 ```java
 package org.csystem.app;  
@@ -25158,7 +25158,7 @@ class Fighter {
 ##### 21 Kasım 2024 - 28 Kasım 2024
 #### Sınıflararası İlişkiler
 
-> Bir projenin kodlama aşamasında, NYPT kullanılacaksa ilk olarak o domain'e ilişkin varlıklara karşılık gelen sınıflar belirlenir. Sonra ilişkiler belirlenir. Buna **transformation** da denir. Sonrasında kodlama aşamasına geçilir. Örneğin bir alışveriş sistemine ilişkin bir uygulamada müşteri, ürün, sipariş gibi kavramlar sınıflar olarak belirlenir. Aslında ilişkiler nesneler arasında düşünülür ve sınıflar olarak implemente edilir.
+Bir projenin kodlama aşamasında, NYPT kullanılacaksa ilk olarak o domain'e ilişkin varlıklara karşılık gelen sınıflar belirlenir. Sonra ilişkiler belirlenir. Buna **transformation** da denir. Sonrasında kodlama aşamasına geçilir. Örneğin bir alışveriş sistemine ilişkin bir uygulamada müşteri, ürün, sipariş gibi kavramlar sınıflar olarak belirlenir. Aslında ilişkiler nesneler arasında düşünülür ve sınıflar olarak implemente edilir.
 > 
 > Bir uygulamanın isterlerinin belirlenmesinden (requirement analysis) teslimine (deployment) kadar geçen süreci şemalarla ifade etmeye yarayan **UML (Unified Modeling Language)** denilen bir dil proje geliştirmede kullanılabilmektedir. UML'in, genel olarak programcıyı ilgilendiren önemli şemalarında biri **class diagram** olarak adlandırılan şemadır. Bu şema ile sınıflar (aslında UDT'ler) ve aralarındaki ilişkiler bir standart olarak çizilebilmektedir/gösterilebilmektedir. 
 
