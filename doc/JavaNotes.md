@@ -25791,7 +25791,7 @@ class A {
 
 > Türetme ilişkisinde nesnesel bir kapsama söz konusudur. Bu ilişkide türemiş sınıf nesnesi içerisinde taban sınıf kadarlık bir bölüm de bulunur. Yani türemiş sınıf nesnesi yaratıldığında nesnesel olarak kapsadığı taban sınıf nesnesi de yaratılmış olur. Bu anlamda bakıldığında türemiş sınıfa eklenmiş veri elemanları ile aslında taban sınıf nesnesi genişletilmiş (extension) olur. Bu durumda türemiş sınıf nesnesinin uzunluğu **en az taban sınıf nesnesinin uzunluğu + türemiş sınıfa eklenen non-static veri elemanlarının uzunluğu kadardır.** Aslında türemiş sınıfa eklenen non-static veri elemanları ile bir nesne genişletilmiş (extend) olur:
 
-![Inheritance](./media/Inheritance3.PNG)
+![Inheritance](./media/inheritance3.PNG)
 
 > Burada B sınıfı türünden bir nesnenin içeriisnde a veri elemanı da vardır. Aynı şekilde C sınıfı türünden bir nesnenin içerisinde a ve b veri elemanları da bulunur. Bu hiyerarşiye ilişkin nesnelerin birer örneklerinin bellekteki karşılıkları şekilsel olarak şu şekilde ifade edilebilir:
 
@@ -29527,7 +29527,7 @@ for (int i = 1; i < n ++i)
 ##### 23 Ocak 2025
 ##### Dinamik Büyüyen Dizi Veri Yapısı ve ArrayList Sınıfı
 
-> Anımsanacağı gibi bir dizinin uzunluğu değiştirilemez. Bir diziyi büyütmek için yeni eleman sayısıyla bir dizi yaratılmalı, eski dizideki elemanlar yeni diziye kopyalanmalı ve seki diziyi gösteren referans yeni diziyi gösterir duruma getirilmelidir. Burada aslında mantıksal bir büyütme söz konusudur. Dizinin, eklenmesi gereken eleman sayısı kadar mantıksal büyütülmesi işlemi `O(n)`karmaşıklıktadır. Bu durumda dizinin bir elemanına erişimin `O(1)`karmaşıklıkta olması avantajı artık ortadan kalkacaktır.  Böylesi bir durumda sabit zamanlı erişimden daha fazla yararlanmak için dizi eklenecek eleman sayısından biraz daha fazla büyütülür. Bu tarz bir büyütme işlemiyle birlikte bu diziye ekleme yapılması çoğu zaman O(1), büyütüleceği zaman O(n) karmaşıklıkta olur. Anımsanacağı gibi bu karmaşıklığa **constant amortized (time) complexity/cost** denilmektedir. Diziyi gerektiğinde mantıksal olarak büyüten böylesi veri yapılarına **dynamic array** ya da **resizable array** denilmektedir. Java dünyasında veri yapılarına **collections** denilmektedir. JavaSe'de de birçok veri yapısını temsil eden collection sınıflar vardır. Burada dinamik büyüyen dizi veri yapısını temsil eden **ArrayList** ve belirli ölçüde **Vector** sınıfını ele alacağız. Bu sınıflar **java.util** paketi içerisindedir. Diğer collection sınıflar `Java ile Uygulama Geliştirme I ve II` kurslarında ele alınacaktır. Dinamik büyüyen dizi veri yapıları büyütme işlemini eklenen elam sayısından genel olarak fazla yaptıklarından iki önemli değer söz konusudur: **capacity**, **size/count**. Capacity değeri dizinin gerçek uzunluğudur. Size değeri ise dizi ile tutulan eleman sayısıdır. Capacity değeri en az size kadar olur, size değerinden küçük olamaz. ArrayList sınıfında capacity değerinin büyütme politikası (growth policy)yani nasıl büyütüleceği belirtilmemiştir. Yani bu sınıfı JavaSE için yazanlara bırakılmıştır (implementation defined/dependent). Ancak bir capacity değeri kullandığı yani etkin bir şekilde (amortized constant time cost) büyüteceği garanti edilmiştir. ArrayList sınıfından içsel olarak tutulan dizinin uzunluğu yani capacity değerini veren bir metot yoktur. Yani programcı o anki capacity değerini elde edemez. Capacity değeri gereken durumda ArrayList sınıfı gibi dinamik büyüyen dizi veri yapısını temsil eden `Vector`isimli sınıf kullanılabilir. Biz de örneklerimizde capacity değeri gerektiğinde Vector sınıfını kullanacağız. Zaten pratikte de ArrayList'de olmayan özellikler için Vector sınıfı kullanılır. ArrayList'in özellikleri uygulamaya ilişkin senaryoyu karşılıyorsa bu durumda kesinlikle ArrayList kullanılmalıdır. Vector sınıfının o anki capacity değerinin döndüren **capacity** isimli bir metodu vardır. Bu metot veya bu metodun yaptığı işi yapan bir metot ArrayList'de yoktur.
+>Anımsanacağı gibi bir dizinin uzunluğu değiştirilemez. Bir diziyi büyütmek için yeni eleman sayısıyla bir dizi yaratılmalı, eski dizideki elemanlar yeni diziye kopyalanmalı ve seki diziyi gösteren referans yeni diziyi gösterir duruma getirilmelidir. Burada aslında mantıksal bir büyütme söz konusudur. Dizinin, eklenmesi gereken eleman sayısı kadar mantıksal büyütülmesi işlemi `O(n)`karmaşıklıktadır. Bu durumda dizinin bir elemanına erişimin `O(1)`karmaşıklıkta olması avantajı artık ortadan kalkacaktır.  Böylesi bir durumda sabit zamanlı erişimden daha fazla yararlanmak için dizi eklenecek eleman sayısından biraz daha fazla büyütülür. Bu tarz bir büyütme işlemiyle birlikte bu diziye ekleme yapılması çoğu zaman O(1), büyütüleceği zaman O(n) karmaşıklıkta olur. Anımsanacağı gibi bu karmaşıklığa **constant amortized (time) complexity/cost** denilmektedir. Diziyi gerektiğinde mantıksal olarak büyüten böylesi veri yapılarına **dynamic array** ya da **resizable array** denilmektedir. Java dünyasında veri yapılarına **collections** denilmektedir. JavaSe'de de bir çok veri yapısını temsil eden collection sınıflar vardır. Burada dinamik büyüyen dizi veri yapısını temsil eden **ArrayList** ve belirli ölçüde **Vector** sınıfını ele alacağız. Bu sınıflar **java.util** paketi içerisindedir. Diğer collection sınıflar `Java ile Uygulama Geliştirme I ve II` kurslarında ele alınacaktır. Dinamik büyüyen dizi veri yapıları büyütme işlemini eklenen elam sayısından genel olarak fazla yaptıklarından iki önemli değer söz konusudur: **capacity**, **size/count**. Capacity değeri dizinin gerçek uzunluğudur. Size değeri ise dizi ile tutulan eleman sayısıdır. Capacity değeri en az size kadar olur, size değerinden küçük olamaz. ArrayList sınıfında capacity değerinin büyütme politikası (growth policy)yani nasıl büyütüleceği belirtilmemiştir. Yani bu sınıfı JavaSE için yazanlara bırakılmıştır (implementation defined/dependent). Ancak bir capacity değeri kullandığı yani etkin bir şekilde (amortized constant time cost) büyüteceği garanti edilmiştir. ArrayList sınıfından içsel olarak tutulan dizinin uzunluğu yani capacity değerini veren bir metot yoktur. Yani programcı o anki capacity değerini elde edemez. Capacity değeri gereken durumda ArrayList sınıfı gibi dinamik büyüyen dizi veri yapısını temsil eden `Vector`isimli sınıf kullanılabilir. Biz de örneklerimizde capacity değeri gerektiğinde Vector sınıfını kullanacağız. Zaten pratikte de ArrayList'de olmayan özellikler için Vector sınıfı kullanılır. ArrayList'in özellikleri uygulamaya ilişkin senaryoyu karşılıyorsa bu durumda kesinlikle ArrayList kullanılmalıdır. Vector sınıfının o anki capacity değerinin döndüren **capacity** isimli bir metodu vardır. Bu metot veya bu metodun yaptığı işi yapan bir metot ArrayList'de yoktur.
 
 **Anahtar Notlar:** ArrayList ve Vector sınıfları aslında `generic` sınıflardır. Java'da generic sınıflar generic değilmiş gibi yani generic olmayan bir sınıf gibi de kullanılabilmektedir. Bu kullanım aslında tavsiye edilmeyen bir kullanımdır ancak biz henüz generic sınıfları ele almadığımız için bu şekilde kullanımı tercih edeceğiz. Generic sınıflar, generic değilmiş gibi kullanıldıklarından birçok static kod analizi aracı uyarı mesajı verirler. Buradaki örneklerimizde bu uyarıları dikkate almayacağız. Generic sınıflar konusu ile birlikte, bu durumun neden tavsiye edilmediği gibi detaylar ayrıca ele alınacaktır. 
 
@@ -30209,15 +30209,15 @@ public class CSDStringBuilderInitialEnsureCapacityTest {
 ##### 13 Şubat 2025
 ##### Polymorphism
 
-> Biyoloji'den programlamaya aktarılmış bir kavramdır. Biyoloji'de çok biçimlilik (polymorphism) şu şekilde tanımlanabilir: `Farklı doku ya da organların evrim süreci içerisinde temel işlevi (yani hedefi) aynı kalacak şekilde, o işlevi yerine getirme biçiminin değişebilmesidir.` Örneğin, bir canlının `duyma` işlevinin yapılı şekli, o canlıdan türemiş olan bir canlıda değişiklik gösterebilmektedir. Ancak temel işlev duymaktır. 
-> 
-> Polymorphism özellikle NYPT'de iki biçimde düşünülür: **runtime polymorphism (RTP)**, **compile time polymorphism (CTP)**. Bu bölümde RTP ele alınacaktır. CTP, `generics`konusunda ele alınacaktır. Polymorphism dendiğinde genel olarak RTP anlaşılır. 
-> 
-> RTP ile ilgili pek çok tanım ve betimleme yapılabilse de aşağıdaki 3 (üç) tanıma indirgenebilir:
-> 
-> **1. Biyolojik Tanım:** Taban sınıfın (super/base/parent class) bir fonksiyonunun (Java'da metot olarak düşünebilirsiniz) türemiş sınıfta (sub/derived/child class) yeniden gerçekleştirilmesidir (implementation).
-> **2. Yazılım Mühendisliği Tanımı:** Türden bağımsız kod yazmaktır.
-> **3. Aşağı Seviyeli Tanım:** Önceden yazılmış kodların sonradan yazılmış kodları çağırabilmesidir.
+>Biyoloji'den programlamaya aktarılmış bir kavramdır. Biyoloji'de çok biçimlilik (polymorphism) şu şekilde tanımlanabilir: `Farklı doku ya da organların evrim süreci içerisinde temel işlevi (yani hedefi) aynı kalacak şekilde, o işlevi yerine getirme biçiminin değişebilmesidir.` Örneğin, bir canlının `duyma` işlevinin yapılı şekli, o canlıdan türemiş olan bir canlıda değişiklik gösterebilmektedir. Ancak temel işlev duymaktır. 
+>
+>Polymorphism özellikle NYPT'de iki biçimde düşünülür: **runtime polymorphism (RTP)**, **compile time polymorphism (CTP)**. Bu bölümde RTP ele alınacaktır. CTP, `generics`konusunda ele alınacaktır. Polymorphism dendiğinde genel olarak RTP anlaşılır. 
+>
+>RTP ile ilgili pek çok tanım ve betimleme yapılabilse de aşağıdaki 3 (üç) tanıma indirgenebilir:
+>
+>**1. Biyolojik Tanım:** Taban sınıfın (super/base/parent class) bir fonksiyonunun (Java'da metot olarak düşünebilirsiniz) türemiş sınıfta (sub/derived/child class) yeniden gerçekleştirilmesidir (implementation).
+>**2. Yazılım Mühendisliği Tanımı:** Türden bağımsız kod yazmaktır.
+>**3. Aşağı Seviyeli Tanım:** Önceden yazılmış kodların sonradan yazılmış kodları çağırabilmesidir.
 
 **Anahtar Notlar:** Özellikle RTP destekleyen bir programlama diline `object oriented programming language` denir. Nesne, türetme (inheritance) gibi kavramların desteklendiği ancak RTP'nin desteklenmediği bir programlama diline ise genel olarak `object based programming language` denilmektedir.
 
@@ -30231,10 +30231,10 @@ public class CSDStringBuilderInitialEnsureCapacityTest {
 > 
 > Derleyici sanal bir metot çağrısı gördüğünde şu şekilde bir kod üretir: `Çalışma zamanında metodun çağrılmasında kullanılan referansın dinamik türüne bak, dinamik türe ilişkin sınıfta ilgili sanal metot override edilmişse onu çağır, edilmemişse taban sınıfına bak orada override edilmişse onu çağır, edilmemişse taban sınıfına bak orada override edilmişse onu çağır, ..."
 
-> Aşağıdaki demo örneği inceleyiniz. Örnekte dikkat edilirse RTP'ye ilişkin 3 temel tanımda gerçeklenmiş olur:
-> **- Biyolojik Tanım**: foo metodu bazı türemiş sınıflarda override edilmiştir
-> **- Yazılım Mühendisliği Tanımı:** Util sınıfının doSomething metodu ve DemoApp sınıfının run metodu A hiyerarşisi açısında türden bağımsızdır. Yani bu hiyerarşide sadece `A` sınıfına bağımlıdır.
-> **- Aşağı Seviyeli Tanım:** A hiyerarşisine yeni bir tür eklense bile doSomething metodu ve run metodu çalışma zamanında bu türü, dolayısıyla ilgili metodu çağırabilir durumdadır
+>Aşağıdaki demo örneği inceleyiniz. Örnekte dikkat edilirse RTP'ye ilişkin 3 temel tanımda gerçeklenmiş olur:
+>**- Biyolojik Tanım**: foo metodu bazı türemiş sınıflarda override edilmiştir
+>**- Yazılım Mühendisliği Tanımı:** Util sınıfının doSomething metodu ve DemoApp sınıfının run metodu A hiyerarşisi açısında türden bağımsızdır. Yani bu hiyerarşide sadece `A` sınıfına bağımlıdır.
+>**- Aşağı Seviyeli Tanım:** A hiyerarşisine yeni bir tür eklense bile doSomething metodu ve run metodu çalışma zamanında bu türü, dolayısıyla ilgili metodu çağırabilir durumdadır
 
 ```java
 package org.csystem.app;  
@@ -30357,7 +30357,7 @@ class A {
 
 ##### 20 Şubat 2025
 
-> Bazı durumlarda türemiş sınıfta override edilen bir metot içerisinde, yapılacak işlerin yanında taban sınıfın metodunun da işi yapılabilir. Buna **augmentation** da denilmektedir. Bunun **super** referansı kullanılır. super referansı kullanıldığı metodun ait oldu sınıfın taban sınıf kısmının adresidir.  super referansı kullanıldığı sınıfın taban sınıfı türündendir. super referansı yalnızca non-static metotlar içerisinde kullanılabilir.
+>Bazı durumlarda türemiş sınıfta override edilen bir metot içerisinde, yapılacak işlerin yanında taban sınıfın metodunun da işi yapılabilir. Buna **augmentation** da denilmektedir. Bunun **super** referansı kullanılır. super referansı kullanıldığı metodun ait oldu sınıfın taban sınıf kısmının adresidir.  super referansı kullanıldığı sınıfın taban sınıfı türündendir. super referansı yalnızca non-static metotlar içerisinde kullanılabilir.
 
 > Aşağıdaki demo örneği inceleyiniz
 
@@ -31411,13 +31411,13 @@ public class AnalyticalCircle extends Circle {
     }  
 }
 ```
-**Anahtar Notlar:** Bir sınıfta equals metodu override edildiğinde, Object sınıfının hashCode metodu da override edilir. Yani, bu iki metot ya hiç override edilmez ya da ikisiz birden override edilir. hashCode metodu `Java ile Uygulama Geliştirme I` kursunda ele alınacaktır. Burada equals metodunun override edildiği sınıflarda hashCode override edilmeyecektir. 
+**Anahtar Notlar:** Bir sınıfta equals metodu override edildiğinde, Object sınıfının hashCode metodu da override edilir. Yani, bu iki metot ya hiç override edilmez ya da ikisi birden override edilir. hashCode metodu `Java ile Uygulama Geliştirme I` kursunda ele alınacaktır. Burada equals metodunun override edildiği sınıflarda hashCode override edilmeyecektir. 
 
 ##### 11 Mart 2025
 
 ##### abstract Sınıflar ve abstract Metotlar
 
-> Bazı sınıflar türünden doğrudan nesne yaratmanın anlamı yoktur. Bu sınıflar tipik olarak bir kavramı **soyut (abstract)** olarak temsil ederler. Örneğin, bir insan kaynakları otomasyon sistemine ilişkin bir grup sınıfın detayların eklenmediği edildiği UML şeması aşağıdaki gibi olsun:
+>Bazı sınıflar türünden doğrudan nesne yaratmanın anlamı yoktur. Bu sınıflar tipik olarak bir kavramı **soyut (abstract)** olarak temsil ederler. Örneğin, bir insan kaynakları otomasyon sistemine ilişkin bir grup sınıfın detayların eklenmediği edildiği UML şeması aşağıdaki gibi olsun:
 
 ![DemoCompanyApp](./media/DemoCompanyApp.PNG)
 > Burada `Employee` türünden doğrudan nesne yaratılmasının pratikte bir anlamı yoktur. Bu sınıf bu hiyerarşide çalışan kavramını (dolayısıyla ortak özelliklerini) temsil etmektedir. Bu sınıftan türetilmiş olan sınıfların doğrudan yaratılmış nesneler olarak anlamı vardır. Yani, Employee türünden nesne türemiş sınıf içerisinde (nesnesel kapsama) anlamlıdır. Ayrıca Employee sınıfının, bir çalışanın sigorta ödeme miktarını veren `calculateInsurancePayment` metodunun gövdesi yani kodları anlamsızdır ancak bu metodun sanal olarak var olması gerekir. Çünkü `HumanResource` sınıfının `payInsurance` metodu içerisinde sanal olarak çağrılaması gerekir. Türemiş sınıflarda bu metot override edilerek `payInsurance` metodu içerisinde çağrılmış olur. İşte böylesi gövdesi olması gerekmeyen (ya da gövdesi olması anlamsız) sanal metotlara **soyut metotlar (abstract methods)** denir. Doğrudan nesne özelliği göstermeyen sınıflara **soyut sınıflar (abstract sınıflar)** denir. Doğrudan nesne özelliği gösteren sınıflara ise **somut sınıflar (concrete classes)** denir. Buradaki hiyerarşiye ilişkin demo uygulamanın kodları bölüm sonunda `DemoCompanyApp` olarak incelenebilir.
@@ -32593,7 +32593,7 @@ throw <referans> ;
 > Burada referansa ilişkin sınıfın **Throwable** sınıfından doğrudan ya da dolaylı olarak türetilmiş bir sınıf türünden olması gerekir. Aksi durumda error oluşur. Java'da `Throwable`sınıfından doğrudan ya da dolaylı olarak türetilmiş olan sınıflara genel olarak **exception sınıfları (exception classes)** ya da **throwable classes** denilmektedir. Throwable sınıfından **Exception** ve **Error** isimli iki sınıf türetilmiştir. Ayrıca `Exception`sınıfından **RuntimeException** isimli bir sınıf türetilmiştir. Bu 4 sınıf Java'da temel exception sınıflarıdır. Bu 4 sınıfın önemi ayrıca ele alınacaktır. Pratikte `Throwable`sınıfından doğrudan türetme yapılmaz. Türetme tipik olarak, doğrudan ya da dolaylı olarak ya `Exception` sınıfından, ya `RuntimeException` sınıfından ya da `Error` sınıfından yapılır. Bu 4 tane sınıfa ilişkin sınıf şemasının genel biçimi aşağıdaki gibidir:
 
 ![BasicExceptionClasses](./media/BasicExceptionClasses.png)
-**Anahtar Notlar:** Exception ve RuntimeException sınıflarından doğrudan ya da dolaylı olarak türetilen sınıfların isimlendirmesinde bir convention olarak **Exception** kelimesi son kelime olarak kullanılır, Error sınıfından doğrudan ya da dolaylı olarak türetilen sınıfların isimlendirmesinde bir convention olarak **Error** kelimesi son kelime olarak kullanılır. Programcı da kendi exception sınıfları için bu convention'a uymalıdır.
+Exception ve RuntimeException sınıflarından doğrudan ya da dolaylı olarak türetilen sınıfların isimlendirmesinde bir convention olarak **Exception** kelimesi son kelime olarak kullanılır, Error sınıfından doğrudan ya da dolaylı olarak türetilen sınıfların isimlendirmesinde bir convention olarak **Error** kelimesi son kelime olarak kullanılır. Programcı da kendi exception sınıfları için bu convention'a uymalıdır.
 
 > Aşağıdaki demo örnekte NegativeException sınıfı Throwable sınıfından doğrudan ya da dolaylı olarak türetilmediği için yani bir exception olmadığı için error oluşur. 
 
@@ -32604,7 +32604,7 @@ class MathUtil {
     {  
         if (a < 0)  
             throw new NegativeException(); //error  
-                //...  
+            //...  
     }  
 }  
   
@@ -33420,7 +33420,7 @@ public class Console {
 }
 ```
 
-> Bir exception sınıfı içerisinde çeşitli veriler tutulabilir ve exception'ı yakalayan kişi bu verileri kullanabilir. Bu anlamda Throwable sınıfı içerisinde bazı veriler tutulabilmektedir. Bunlardan en tipik olanı String türünde message (detail message) elemanıdır. Bu anlamda Throwable sınıfının message parametreli ctor'ları vardır. Message değerini elde etmek için `getMessage` sanal metodu çağrılabilir. Bu sınıftan doğrudan ya da dolaylı olarak türetilen sınıfların genel olarak message parametreli ctor veya ctor'ları bulunur. Exception, Runtimeexception ve Error sınıflarının da message parametreli ctor'ları vardır. Programcı isterse kendi exception sınıfına başka elemanlar da ekleyebilir. getMessage metodu sanal bir metot olduğundan gerektiğinde override edilebilir. JavaSE içerisinde bulunan bazı exception sınıfları (burada bazı az anlamında düşünülmemelidir) bu metodu override etmişlerdir. 
+>Bir exception sınıfı içerisinde çeşitli veriler tutulabilir ve exception'ı yakalayan kişi bu verileri kullanabilir. Bu anlamda Throwable sınıfı içerisinde bazı veriler tutulabilmektedir. Bunlardan en tipik olanı String türünde message (detail message) elemanıdır. Bu anlamda Throwable sınıfının message parametreli ctor'ları vardır. Message değerini elde etmek için `getMessage` sanal metodu çağrılabilir. Bu sınıftan doğrudan ya da dolaylı olarak türetilen sınıfların genel olarak message parametreli ctor veya ctor'ları bulunur. Exception, Runtimeexception ve Error sınıflarının da message parametreli ctor'ları vardır. Programcı isterse kendi exception sınıfına başka elemanlar da ekleyebilir. getMessage metodu sanal bir metot olduğundan gerektiğinde override edilebilir. JavaSE içerisinde bulunan bazı exception sınıfları (burada bazı az anlamında düşünülmemelidir) bu metodu override etmişlerdir. 
 
 > Aşağıdaki demo örneği inceleyiniz
 
@@ -33629,7 +33629,7 @@ enum MatExceptionStatus {
 
 > Throwable sınıfının `printStackTrace` metotları exception oluşma noktalarını bir stack olarak gösteren bir mesajı ilgili output'a gönderir. Parametresiz `printStackTrace` metodu ekrana (aslında `stderr`'ye) basmak için kullanılabilir. Basılan mesaj exception'ın yakalanmamasından dolayı akışın abnormal olarak sonlandığı durumda basılan mesaja çok benzerdir. Bu mesajlar tipik olarak geliştirme aşamasında debug etmek için kullanılabilmektedir.
 
-**Anahtar Notlar:** Bir takım bilgilerin daha sonra incelemek için saklanmasına yazılmış geliştirmede `logging` denilmektedir. Örneğin, uygulama test aşamasında çalıştırılırken bir takım hata mesajları saklanarak daha sonra incelenebilir. Bunun için her ne kadar `printStackTrace` metotları kullanılabilse de daha detaylı durumlar için bu mesajlar yetersiz kalabilir. Hatta, dışında da bazı mesajların `loglanması` gerekebilir. Bu durumda, `logger` denilen bazı üçüncü parti kütüphaneler kullanılır. Bu sebeple `printStackTrace` özellikle parametresiz overload'u için bazı static kod analizi araçları default konfigürasyonda uyarı mesajı verebilmektedirler. Logger'lar, `Java ile Uygulama Geliştirme` kurslarında kullanılacak ve çeşitli düzeylerde detaylandırılacaktır.
+**Anahtar Notlar:** Bir takım bilgilerin daha sonra incelemek için saklanmasına yazılmış geliştirmede `logging` denilmektedir. Örneğin, uygulama test aşamasında çalıştırılırken bir takım hata mesajları saklanarak daha sonra incelenebilir. Bunun için her ne kadar `printStackTrace` metotları kullanılabilse de daha detaylı durumlar için bu mesajlar yetersiz kalabilir. Hatta, hata dışında da bazı mesajların `loglanması` gerekebilir. Bu durumda, `logger` denilen bazı üçüncü parti kütüphaneler kullanılır. Bu sebeple `printStackTrace` özellikle parametresiz overload'u için bazı static kod analizi araçları default konfigürasyonda uyarı mesajı verebilmektedirler. Logger'lar, `Java ile Uygulama Geliştirme` kurslarında kullanılacak ve çeşitli düzeylerde detaylandırılacaktır.
 
 > Aşağıdaki demo örneği inceleyiniz.
 
@@ -33861,7 +33861,7 @@ enum MatExceptionStatus {
 
 **Anahtar Notlar:** Bir exception sınıfının checked veya unchecked olması çalışma zamanına ilişkin bir kavram değildir. Derleme zamanında checked exception'lar için bazı sentaks ve semantik zorunluluklar söz konusudur. Kategorisi ne olursa olsun, çalışma zamanında exception işlemlerine ilişkin bir değişiklik yoktur.
 
-> Bir checked exception fırlatabilecek bir akış için, ya try deyimi ile ilgili exeption'ın yakalanabileceği bir catch bloğunun olması ya da akışa ilişkin metotta `throws bildirimi (throws declaration)` yapılması gerekir. Aksi durumda error oluşur.
+>Bir checked exception fırlatabilecek bir akış için, ya try deyimi ile ilgili exeption'ın yakalanabileceği bir catch bloğunun olması ya da akışa ilişkin metotta `throws bildirimi (throws declaration)` yapılması gerekir. Aksi durumda error oluşur.
 
 > Aşağıdaki demo örnekte `log10` metodundaki throws listesinde her iki checked exception da fırlatılabileceğinden yani akış içerisinde bunları fırlatan throw deyimleri bulunduğundan ve akış try deyimine alınmadığından throws listesi zorunludur. `doWork`metodunda `NegativeInfinityException` yakalanabildiğinden throws listesine konmaz. Ancak `NaNException` throws listesinde olmalıdır. `main` metodunda `NaNException` da yakalanabildiğinde main metodunda herhangi bir throws listesi olması gerekmez.
 
@@ -35133,9 +35133,9 @@ public class Fraction {
 
 ##### Arayüzler (Interfaces)
 
-> Bir arayüz (interface) bir UDT bildirimidir. Bir arayüz **interface** anahtar sözcüğü ile bildirilir. Arayüzler en çok `abstract class`'lara benzeseler de sentaks ve semantik olarak farklı kurallara sahiptirler. Arayüzler, Java'da çoklu türetmenin belirli ölçüde kullanılabilmesini de sağlar. Özellikle `Java 8` ile birlikte arayüzler, eklenen yeni özellikler ile daha yetenekli hale gelmişlerdir. 
-> 
-> Arayüzler nesne özelliği göstermezler. Yani, bir arayüz türünden nesne hiçbir şekilde yaratıl(a)maz. Arayüzler aslında bir anlaşma (contract) belirtmek için kullanılır.
+>Bir arayüz (interface) bir UDT bildirimidir. Bir arayüz **interface** anahtar sözcüğü ile bildirilir. Arayüzler en çok `abstract class`'lara benzeseler de sentaks ve semantik olarak farklı kurallara sahiptirler. Arayüzler, Java'da çoklu türetmenin belirli ölçüde kullanılabilmesini de sağlar. Özellikle `Java 8` ile birlikte arayüzler, eklenen yeni özellikler ile daha yetenekli hale gelmişlerdir. 
+>
+>Arayüzler nesne özelliği göstermezler. Yani, bir arayüz türünden nesne hiç bir şekilde yaratıl(a)maz. Arayüzler aslında bir anlaşma (contract) belirtmek için kullanılır.
 
 **Anahtar Notlar:** Arayüz isimlerini diğer UDT'lerden ayırmak için bazı programcılar arayüz isimlerini `I` ile başlatmayı tercih ederler. Bu bir convention olarak düşünülebilir. Biz de arayüz isimlerimizi `I` ile başlatacağız. Ancak JavaSE'de bulunan arayüzler için bu convention kullanılmamaktadır.
 
@@ -37249,7 +37249,7 @@ class DemoDatabaseConnection implements Closeable {
 }
 ```
 
-> Yukarıdaki demo örnek aşağıdaki gibi daha okunabilir hale getirilebilir ancak yine de programcı stratej değiştmek zorunda kalmıştır. Bununla birlikte programcı close metodunun çağrılmasını unutabilir yani gözünden kaçabilir
+>Yukarıdaki demo örnek aşağıdaki gibi daha okunabilir hale getirilebilir ancak yine de programcı stratej değiştmek zorunda kalmıştır. Bununla birlikte programcı close metodunun çağrılmasını unutabilir yani gözünden kaçabilir
 
 ```java
 package org.csystem.app;  
@@ -37919,7 +37919,7 @@ public class ConcatFilesApp {
 
 ##### Generics
 
-> Generic'ler **derleme zamanı çok biçimliliğinin (compile time polimorphism - CTP)** gerçekleştirmek için kullanılır. Java 1.5 ile dile eklenmiştir. Generic'ler C++'ın template'larından esinlenilerek Java'ya eklenmiştir. Generic'ler genel olarak iki gruba ayrılabilir: **generic türler (generic types), generic metotlar (generic methods)**.  Şu ana kadar görmüş olduğumuz tür bildirimleri içerisinde yalnızca sınıflar ve arayüzler generic olarak bildirilebilirler. enum sınıfları generic olarak bildirilemezler. Exception sınıfları da generic olarak bildirilemezler. Generic konusuna ilişkin bazı detaylar `Java ile Uygulama Geliştirme 1` kursunda ele alınacaktır. 
+>Generic'ler **derleme zamanı çok biçimliliğinin (compile time polimorphism - CTP)** gerçekleştirmek için kullanılır. Java 1.5 ile dile eklenmiştir. Generic'ler C++'ın template'larından esinlenilerek Java'ya eklenmiştir. Generic'ler genel olarak iki gruba ayrılabilir: **generic türler (generic types), generic metotlar (generic methods)**.  Şu ana kadar görmüş olduğumuz tür bildirimleri içerisinde yalnızca sınıflar ve arayüzler generic olarak bildirilebilirler. enum sınıfları generic olarak bildirilemezler. Exception sınıfları da generic olarak bildirilemezler. Generic konusuna ilişkin bazı detaylar `Java ile Uygulama Geliştirme 1` kursunda ele alınacaktır. 
 
 > Generic bir UDT bildiriminde açısal parantezler kullanılır. Açısal parantezler sınıf isminden sonra yazılır. Açısal parantezler içerisinde değişken isimlendirme kurallarına uygun isimler virgül ile listelenebilir. Açısal parantezler içerisindeki bu isimlere **generic tür parametreleri (generic type parameters)** veya **tür parametreleri (type parameters)** veya **parametrelenmiş türler (parameterized types)** denir. Adından da anlaşılacağı gibi bu isimler aslında bir tür belirtirler. Bir convention olarak tür parametrelerinde `upper camel case` olarak yazılırlar. Bazı durumlarda bu isimler tek bir karakterden de oluşabilir. Tek karakterden oluşan isimlendirmelerde çoğunlukla `T, K, L, E` gibi karakterler kullanılır. Şüphesiz bu bir zorunluluk değildir. Generic tür parametrelerine ilişkin isimlerin faaliyet alanı (scope) ilgili UDT boyuncadır ilgili UDT içerisinde tür olarak kullanılabilir:
 
@@ -39151,7 +39151,7 @@ public class Triple<F, S, T> {
 ```
 
 
-> Bir sınıf ya da bir metodun generic tür parametresi için bir kısıt (constraint) verilebilir. Örneğin bir sınıf generic tür parametresi için `TWR` kullanmak isteyebilir. Yani generic türün `AutoCloseable` olması tasarımdan dolayı gerekebilir. Bu durumda derleyici generic tür parametresinin `AutoCloseable` olduğunu nasıl anlayacaktır? Bu durumda generic tür parametreleri için kısıtlar verilebilir. Bunun için genel olarak `extends` anahtar sözcüğü kullanılır. Kısıt verilen generic tür parametreleri, verilen kısıtlara uygun olarak açılmalıdır. Yani, kısıtları sağlan türler ile açılım yapılmalıdır. Aksi durumda error oluşur.
+>Bir sınıf ya da bir metodun generic tür parametresi için bir kısıt (constraint) verilebilir. Örneğin bir sınıf generic tür parametresi için `TWR` kullanmak isteyebilir. Yani generic türün `AutoCloseable` olması tasarımdan dolayı gerekebilir. Bu durumda derleyici generic tür parametresinin `AutoCloseable` olduğunu nasıl anlayacaktır? Bu durumda generic tür parametreleri için kısıtlar verilebilir. Bunun için genel olarak `extends` anahtar sözcüğü kullanılır. Kısıt verilen generic tür parametreleri, verilen kısıtlara uygun olarak açılmalıdır. Yani, kısıtları sağlan türler ile açılım yapılmalıdır. Aksi durumda error oluşur.
 
 ```java
 package org.csystem.app;  
@@ -39212,8 +39212,8 @@ class Sample<T, K> {
 }
 ```
 
-> 
-> Bunun için pek çok yöntem vardır. Burada, aşağıdaki yöntemle nesne yaratma ele alınacaktır. Aşağıdaki yöntemde nesne için önce `Object` türden nesne yaratılmış sonra tür dönüştürme operatörü ile  generic türe dönüştürülmüştür. Benzer şekilde dizi için önce `Object` türden bir dizi yaratılmış sonra generic dizi  referansına explicit olarak dönüştürülmüştür. Diğer yöntemler burada ele alınmayacaktır.  
+>
+>Bunun için pek çok yöntem vardır. Burada, aşağıdaki yöntemle nesne yaratma ele alınacaktır. Aşağıdaki yöntemde nesne için önce `Object` türden nesne yaratılmış sonra tür dönüştürme operatörü ile  generic türe dönüştürülmüştür. Benzer şekilde dizi için önce `Object` türden bir dizi yaratılmış sonra generic dizi  referansına explicit olarak dönüştürülmüştür. Diğer yöntemler burada ele alınmayacaktır.  
   
 **Anahtar Notlar:** Bu yöntemde birçok static kod analizi aracı uyarı verebilecektir. Bu uyarı ve nedeni şu aşamda  önemsizdir.
 
